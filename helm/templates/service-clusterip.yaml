@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "scoreboards-challenges-service.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "scoreboards-challenges-service.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  selector:
+    {{- include "scoreboards-challenges-service.selectorLabels" . | nindent 4 }}
+  ports:
+    - port: {{ .Values.service.clusterIP.port }}
+      targetPort: {{ .Values.service.clusterIP.port }}

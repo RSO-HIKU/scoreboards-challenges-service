@@ -1,11 +1,11 @@
 kumuluzee:
-  name: activity-service
+  name: scoreboards-challenges-service
   version: 0.1.0
   env:
     name: dev
   server:
     http:
-      port: 8085
+      port: 8089
       address: 0.0.0.0
   datasources:
     default:
