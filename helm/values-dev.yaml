@@ -1,0 +1,14 @@
+replicaCount: 1
+
+image:
+  repository: scoreboards-challenges-service
+  tag: dev-latest
+  pullPolicy: Never
+
+service:
+  clusterIP:
+    port: 8089
+
+  nodePort:
+    port: 8089
+    nodePort: 30089

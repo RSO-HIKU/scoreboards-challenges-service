@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "scoreboards-challenges-service.fullname" . }}-nodeport
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "scoreboards-challenges-service.labels" . | nindent 4 }}
+spec:
+  type: NodePort
+  selector:
+    {{- include "scoreboards-challenges-service.selectorLabels" . | nindent 4 }}
+  ports:
+    - port: {{ .Values.service.nodePort.port }}
+      targetPort: {{ .Values.service.nodePort.port }}
+      nodePort: {{ .Values.service.nodePort.nodePort }}
