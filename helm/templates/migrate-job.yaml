@@ -31,9 +31,9 @@ spec:
                   name: scoreboards-challenges-service-db
                   key: DB_PASS
             - name: FLYWAY_SCHEMAS
-              value: scoreboards-challenges_service
+              value: scoreboards_challenges_service
             - name: FLYWAY_DEFAULT_SCHEMA
-              value: scoreboards-challenges_service
+              value: scoreboards_challenges_service
             - name: FLYWAY_CREATE_SCHEMAS
               value: "true"
           args: ["migrate"] 
