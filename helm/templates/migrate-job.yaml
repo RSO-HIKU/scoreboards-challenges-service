@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "scoreboards-challenges-service.fullname" . }}-migrate
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    "helm.sh/hook": pre-install,pre-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  backoffLimit: 1
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: flyway
+          image: "{{ .Values.flyway.image.repository }}:{{ .Values.flyway.image.tag | default .Chart.AppVersion }}"
+          env:
+            - name: FLYWAY_URL
+              valueFrom:
+                secretKeyRef:
+                  name: scoreboards-challenges-service-db
+                  key: FLYWAY_URL
+            - name: FLYWAY_USER
+              valueFrom:
+                secretKeyRef:
+                  name: scoreboards-challenges-service-db
+                  key: DB_USER
+            - name: FLYWAY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: scoreboards-challenges-service-db
+                  key: DB_PASS
+            - name: FLYWAY_SCHEMAS
+              value: scoreboards-challenges_service
+            - name: FLYWAY_DEFAULT_SCHEMA
+              value: scoreboards-challenges_service
+            - name: FLYWAY_CREATE_SCHEMAS
+              value: "true"
+          args: ["migrate"] 

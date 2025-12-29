@@ -12,6 +12,10 @@ build:
       context: .
       docker:
         dockerfile: Dockerfile
+    - image: scoreboards-challenges-service-migrator
+      context: .
+      docker:
+        dockerfile: Dockerfile.migrator
 deploy:
   helm:
     releases:
@@ -24,6 +28,8 @@ deploy:
         setValueTemplates:
           image.repository: "{{.IMAGE_REPO_scoreboards_challenges_service}}"
           image.tag: "{{.IMAGE_TAG_scoreboards_challenges_service}}"
+          flyway.image.repository: "{{.IMAGE_REPO_scoreboards_challenges_service_migrator}}"
+          flyway.image.tag: "{{.IMAGE_TAG_scoreboards_challenges_service_migrator}}"
         wait: true
 portForward:
   - resourceType: service

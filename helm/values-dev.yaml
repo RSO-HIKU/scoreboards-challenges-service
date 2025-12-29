@@ -12,3 +12,8 @@ service:
   nodePort:
     port: 8089
     nodePort: 30089
+
+flyway:
+  image:
+    repository: scoreboards-challenges-service-migrator
+    tag: "dev"
