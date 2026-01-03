@@ -2,7 +2,11 @@ package com.hiku.scoreboardsChallengesService;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+import org.eclipse.microprofile.auth.LoginConfig;
+import javax.annotation.security.DeclareRoles;
 
-@ApplicationPath("/scoreboards-challenges")
+@LoginConfig(authMethod = "MP-JWT")
+@DeclareRoles({"user", "admin"})
+@ApplicationPath("/api/scoreboards-challenges")
 public class ScoreboardsChallengesService extends Application {
 }
