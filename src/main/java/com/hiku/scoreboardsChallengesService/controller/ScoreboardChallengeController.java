@@ -28,18 +28,129 @@ public class ScoreboardChallengeController {
         public Integer month;
         public Integer year;
         public Boolean completed;  // Will be set based on user
+
+        // No-arg constructor
+        public ChallengeDto() {
+        }
+
+        // Getters and setters
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public Integer getMonth() {
+            return month;
+        }
+
+        public void setMonth(Integer month) {
+            this.month = month;
+        }
+
+        public Integer getYear() {
+            return year;
+        }
+
+        public void setYear(Integer year) {
+            this.year = year;
+        }
+
+        public Boolean getCompleted() {
+            return completed;
+        }
+
+        public void setCompleted(Boolean completed) {
+            this.completed = completed;
+        }
     }
 
     public static class CompleteChallengeRequest {
         public String userId;
         public Long challengeId;
         public String username;
+
+        // No-arg constructor
+        public CompleteChallengeRequest() {
+        }
+
+        // Getters and setters
+        public String getUserId() {
+            return userId;
+        }
+
+        public void setUserId(String userId) {
+            this.userId = userId;
+        }
+
+        public Long getChallengeId() {
+            return challengeId;
+        }
+
+        public void setChallengeId(Long challengeId) {
+            this.challengeId = challengeId;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
     }
 
     public static class BadgeScoreboardRequest {
         public List<String> userIds;
         public Integer month;
         public Integer year;
+
+        // No-arg constructor for JSON deserialization
+        public BadgeScoreboardRequest() {
+        }
+
+        // Getters and setters
+        public List<String> getUserIds() {
+            return userIds;
+        }
+
+        public void setUserIds(List<String> userIds) {
+            this.userIds = userIds;
+        }
+
+        public Integer getMonth() {
+            return month;
+        }
+
+        public void setMonth(Integer month) {
+            this.month = month;
+        }
+
+        public Integer getYear() {
+            return year;
+        }
+
+        public void setYear(Integer year) {
+            this.year = year;
+        }
     }
 
     @GET
