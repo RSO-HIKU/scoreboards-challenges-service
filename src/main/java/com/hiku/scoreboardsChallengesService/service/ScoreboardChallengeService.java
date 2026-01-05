@@ -33,8 +33,8 @@ public class ScoreboardChallengeService {
         return challengeDao.getChallengesForMonth(month, year);
     }
 
-    public UserChallengeCompletion completeChallenge(String userId, Long challengeId) {
-        System.out.println("[ScoreboardChallengeService] enter completeChallenge userId=" + userId + " challengeId=" + challengeId +
+    public UserChallengeCompletion completeChallenge(String userId, Long challengeId, String username) {
+        System.out.println("[ScoreboardChallengeService] enter completeChallenge userId=" + userId + " challengeId=" + challengeId + " username=" + username +
                 " (userIdClass=" + (userId==null ? "null" : userId.getClass().getName()) +
                 ", challengeIdClass=" + (challengeId==null ? "null" : challengeId.getClass().getName()) + ")");
 
@@ -52,6 +52,7 @@ public class ScoreboardChallengeService {
 
             UserChallengeCompletion completion = new UserChallengeCompletion();
             completion.setUserId(userId);
+            completion.setUsername(username);
             completion.setChallenge(challenge);
             System.out.println("[ScoreboardChallengeService] before DB check - userId=" + userId + " challengeId=" + challengeId);
             completion = completionDao.create(completion);

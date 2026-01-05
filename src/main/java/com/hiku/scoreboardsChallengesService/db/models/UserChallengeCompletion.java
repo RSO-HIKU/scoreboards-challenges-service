@@ -13,6 +13,9 @@ public class UserChallengeCompletion {
     @Column(name = "user_id", nullable = false)
     private String userId;
 
+    @Column(name = "username")
+    private String username;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "challenge_id", nullable = false)
     private Challenge challenge;
@@ -34,13 +37,20 @@ public class UserChallengeCompletion {
         this.id = id;
     }
 
-    // CHANGED: return the stored String userId (UUID), do not parse to Integer
     public String getUserId() {
         return userId;
     }
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Challenge getChallenge() {

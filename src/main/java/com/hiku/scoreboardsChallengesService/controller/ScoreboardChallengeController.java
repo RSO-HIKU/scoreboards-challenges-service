@@ -33,6 +33,7 @@ public class ScoreboardChallengeController {
     public static class CompleteChallengeRequest {
         public String userId;
         public Long challengeId;
+        public String username;
     }
 
     public static class BadgeScoreboardRequest {
@@ -89,7 +90,7 @@ public class ScoreboardChallengeController {
     @POST
     @Path("/challenges/complete")
     public Response completeChallenge(CompleteChallengeRequest request) {
-        System.out.println("[ScoreboardChallengeController] completeChallenge called userId=" + request.userId + " challengeId=" + request.challengeId);
+        System.out.println("[ScoreboardChallengeController] completeChallenge called userId=" + request.userId + " challengeId=" + request.challengeId + " username=" + request.username);
         if (request.userId == null || request.challengeId == null) {
             System.out.println("[ScoreboardChallengeController] completeChallenge bad request: missing userId or challengeId");
             return Response.status(Response.Status.BAD_REQUEST)
@@ -98,12 +99,13 @@ public class ScoreboardChallengeController {
         }
 
         try {
-            UserChallengeCompletion completion = service.completeChallenge(request.userId, request.challengeId);
+            UserChallengeCompletion completion = service.completeChallenge(request.userId, request.challengeId, request.username);
             System.out.println("[ScoreboardChallengeController] completeChallenge succeeded id=" + completion.getId() +
-                    " userId=" + completion.getUserId() + " challengeId=" + completion.getChallenge().getId());
+                    " userId=" + completion.getUserId() + " username=" + completion.getUsername() + " challengeId=" + completion.getChallenge().getId());
             return Response.ok(Map.of(
                 "id", completion.getId(),
                 "userId", completion.getUserId(),
+                "username", completion.getUsername(),
                 "challengeId", completion.getChallenge().getId(),
                 "completedAt", completion.getCompletedAt().toString()
             )).build();
