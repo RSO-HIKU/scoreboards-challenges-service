@@ -28,6 +28,11 @@ flyway:
   image:
     repository: scoreboards-challenges-service-migrator
     tag: "dev"
+  url: jdbc:postgresql://postgres.database.svc.cluster.local:5432/hikudb
+  user: hikuuser
+  password: hikupassword
+  baselineOnMigrate: true
+  baselineVersion: 1
 
 jwtAuth:
   issuer: "http://localhost:8080/auth/realms/hiku-dev"
