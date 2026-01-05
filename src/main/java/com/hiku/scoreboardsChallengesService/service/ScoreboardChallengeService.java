@@ -77,7 +77,8 @@ public class ScoreboardChallengeService {
                 .map(row -> {
                     Map<String, Object> entry = new HashMap<>();
                     entry.put("userId", row[0]);
-                    entry.put("completedChallenges", ((Number) row[1]).intValue());
+                    entry.put("username", row[1]); // Include username
+                    entry.put("completedChallenges", ((Number) row[2]).intValue());
                     return entry;
                 })
                 .collect(Collectors.toList());
@@ -90,10 +91,13 @@ public class ScoreboardChallengeService {
 
     public List<Map<String, Object>> getBadgeScoreboard(List<String> userIds, int month, int year) {
         Map<String, Integer> badgeCounts = new HashMap<>();
+        Map<String, String> usernames = new HashMap<>();
         
         for (String userId : userIds) {
             int count = badgeServiceClient.getBadgeCountForUser(userId, month, year);
             badgeCounts.put(userId, count);
+            // Get the username from the last completion for this user
+            usernames.putIfAbsent(userId, completionDao.getUsernameForUser(userId));
         }
 
         return badgeCounts.entrySet().stream()
@@ -101,6 +105,7 @@ public class ScoreboardChallengeService {
                 .map(entry -> {
                     Map<String, Object> scoreEntry = new HashMap<>();
                     scoreEntry.put("userId", entry.getKey());
+                    scoreEntry.put("username", usernames.get(entry.getKey()));
                     scoreEntry.put("badgeCount", entry.getValue());
                     return scoreEntry;
                 })

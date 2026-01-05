@@ -59,16 +59,31 @@ public class UserChallengeCompletionDao {
     // Get scoreboard: users with most completed challenges in a month
     public List<Object[]> getChallengeScoreboard(int month, int year, int limit) {
         return em.createQuery(
-                "SELECT ucc.userId, COUNT(ucc) as completions " +
+                "SELECT ucc.userId, ucc.username, COUNT(ucc) as completions " +
                 "FROM UserChallengeCompletion ucc " +
                 "JOIN ucc.challenge c " +
                 "WHERE c.month = :month AND c.year = :year " +
-                "GROUP BY ucc.userId " +
+                "GROUP BY ucc.userId, ucc.username " +
                 "ORDER BY completions DESC",
                 Object[].class)
                 .setParameter("month", month)
                 .setParameter("year", year)
                 .setMaxResults(limit)
                 .getResultList();
+    }
+
+    // Get username for a user
+    public String getUsernameForUser(String userId) {
+        try {
+            return em.createQuery(
+                    "SELECT ucc.username FROM UserChallengeCompletion ucc " +
+                    "WHERE ucc.userId = :userId AND ucc.username IS NOT NULL " +
+                    "LIMIT 1",
+                    String.class)
+                    .setParameter("userId", userId)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 }
