@@ -34,8 +34,9 @@ public class UserChallengeCompletion {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return Integer.parseInt(userId);
+    // CHANGED: return the stored String userId (UUID), do not parse to Integer
+    public String getUserId() {
+        return userId;
     }
 
     public void setUserId(String userId) {

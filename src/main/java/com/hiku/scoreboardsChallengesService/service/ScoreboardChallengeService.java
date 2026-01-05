@@ -34,21 +34,39 @@ public class ScoreboardChallengeService {
     }
 
     public UserChallengeCompletion completeChallenge(String userId, Long challengeId) {
-        Challenge challenge = challengeDao.findById(challengeId);
-        if (challenge == null) {
-            throw new IllegalArgumentException("Challenge not found");
-        }
+        System.out.println("[ScoreboardChallengeService] enter completeChallenge userId=" + userId + " challengeId=" + challengeId +
+                " (userIdClass=" + (userId==null ? "null" : userId.getClass().getName()) +
+                ", challengeIdClass=" + (challengeId==null ? "null" : challengeId.getClass().getName()) + ")");
 
-        // Check if already completed
-        UserChallengeCompletion existing = completionDao.findByUserAndChallenge(userId, challengeId);
-        if (existing != null) {
-            return existing; // Already completed
-        }
+        try {
+            Challenge challenge = challengeDao.findById(challengeId);
+            if (challenge == null) {
+                throw new IllegalArgumentException("Challenge not found");
+            }
 
-        UserChallengeCompletion completion = new UserChallengeCompletion();
-        completion.setUserId(userId);
-        completion.setChallenge(challenge);
-        return completionDao.create(completion);
+            // Check if already completed
+            UserChallengeCompletion existing = completionDao.findByUserAndChallenge(userId, challengeId);
+            if (existing != null) {
+                return existing; // Already completed
+            }
+
+            UserChallengeCompletion completion = new UserChallengeCompletion();
+            completion.setUserId(userId);
+            completion.setChallenge(challenge);
+            System.out.println("[ScoreboardChallengeService] before DB check - userId=" + userId + " challengeId=" + challengeId);
+            completion = completionDao.create(completion);
+            System.out.println("[ScoreboardChallengeService] completion created id=" + (completion==null ? "null" : completion.getId()));
+            return completion;
+        } catch (NumberFormatException e) {
+            System.out.println("[ScoreboardChallengeService] NumberFormatException parsing id: " + e.getMessage());
+            throw new IllegalArgumentException("Invalid numeric id: " + e.getMessage(), e);
+        } catch (IllegalArgumentException e) {
+            System.out.println("[ScoreboardChallengeService] IllegalArgumentException: " + e.getMessage());
+            throw e;
+        } catch (Exception e) {
+            System.out.println("[ScoreboardChallengeService] unexpected error: " + e.getClass().getName() + " - " + e.getMessage());
+            throw e;
+        }
     }
 
     public List<Map<String, Object>> getChallengeScoreboard(int month, int year, int limit) {
