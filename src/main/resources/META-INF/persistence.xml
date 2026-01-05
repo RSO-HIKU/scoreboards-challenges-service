@@ -12,9 +12,6 @@
         <properties>
             <!-- JDBC configuration -->
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://postgres.database.svc.cluster.local:5432/hikudb"/>
-            <property name="javax.persistence.jdbc.user" value="hikuuser"/>
-            <property name="javax.persistence.jdbc.password" value="hikupassword"/>
             <!-- Hibernate dialect -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
             <!-- Schema configuration -->
