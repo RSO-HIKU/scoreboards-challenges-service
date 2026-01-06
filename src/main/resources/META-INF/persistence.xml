@@ -7,6 +7,9 @@
 
     <persistence-unit name="scoreboards-pu" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <non-jta-data-source>jdbc/HikuDS</non-jta-data-source>
+
         <class>main.java.com.hiku.scoreboardsChallengesService.db.models.Challenge</class>
         <class>main.java.com.hiku.scoreboardsChallengesService.db.models.UserChallengeCompletion</class>
         <properties>
