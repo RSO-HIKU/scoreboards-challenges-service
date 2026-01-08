@@ -1,6 +1,3 @@
--- Create schema
-CREATE SCHEMA IF NOT EXISTS scoreboards_challenges_service;
-
 -- Challenges table - stores monthly challenges
 CREATE TABLE IF NOT EXISTS scoreboards_challenges_service.challenges (
     id SERIAL PRIMARY KEY,
