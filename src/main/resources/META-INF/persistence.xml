@@ -5,14 +5,11 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
 
-    <persistence-unit name="scoreboards-pu" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="hikuPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <non-jta-data-source>jdbc/HikuDS</non-jta-data-source>
-
-        <class>main.java.com.hiku.scoreboardsChallengesService.db.models.Challenge</class>
-        <class>main.java.com.hiku.scoreboardsChallengesService.db.models.UserChallengeCompletion</class>
-        <properties>
+    <properties>
             <!-- JDBC configuration -->
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <!-- Hibernate dialect -->

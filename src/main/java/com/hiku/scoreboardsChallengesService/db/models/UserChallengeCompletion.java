@@ -1,4 +1,4 @@
-package main.java.com.hiku.scoreboardsChallengesService.db.models;
+package com.hiku.scoreboardsChallengesService.db.models;
 
 import javax.persistence.*;
 import java.time.Instant;

@@ -1,9 +1,10 @@
-package main.java.com.hiku.scoreboardsChallengesService.controller;
+package com.hiku.scoreboardsChallengesService.controller;
 
-import main.java.com.hiku.scoreboardsChallengesService.db.models.Challenge;
-import main.java.com.hiku.scoreboardsChallengesService.db.models.UserChallengeCompletion;
-import main.java.com.hiku.scoreboardsChallengesService.service.ScoreboardChallengeService;
+import com.hiku.scoreboardsChallengesService.db.models.Challenge;
+import com.hiku.scoreboardsChallengesService.db.models.UserChallengeCompletion;
+import com.hiku.scoreboardsChallengesService.service.ScoreboardChallengeService;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@ApplicationScoped
 @Path("/scoreboards-challenges")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -118,40 +120,7 @@ public class ScoreboardChallengeController {
         }
     }
 
-    public static class BadgeScoreboardRequest {
-        public List<String> userIds;
-        public Integer month;
-        public Integer year;
 
-        // No-arg constructor for JSON deserialization
-        public BadgeScoreboardRequest() {
-        }
-
-        // Getters and setters
-        public List<String> getUserIds() {
-            return userIds;
-        }
-
-        public void setUserIds(List<String> userIds) {
-            this.userIds = userIds;
-        }
-
-        public Integer getMonth() {
-            return month;
-        }
-
-        public void setMonth(Integer month) {
-            this.month = month;
-        }
-
-        public Integer getYear() {
-            return year;
-        }
-
-        public void setYear(Integer year) {
-            this.year = year;
-        }
-    }
 
     @GET
     @Path("/challenges")
@@ -250,30 +219,5 @@ public class ScoreboardChallengeController {
         return Response.ok(scoreboard).build();
     }
 
-    @POST
-    @Path("/scoreboard/badges")
-    public Response getBadgeScoreboard(BadgeScoreboardRequest request) {
-        System.out.println("[ScoreboardChallengeController] getBadgeScoreboard called userIdsCount=" + (request.userIds == null ? 0 : request.userIds.size()) +
-                " month=" + request.month + " year=" + request.year);
-        if (request.userIds == null || request.userIds.isEmpty()) {
-            System.out.println("[ScoreboardChallengeController] getBadgeScoreboard bad request: userIds list required");
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("{\"error\":\"userIds list is required\"}")
-                    .build();
-        }
-
-        Integer month = request.month;
-        Integer year = request.year;
-
-        if (month == null || year == null) {
-            LocalDate now = LocalDate.now();
-            month = now.getMonthValue();
-            year = now.getYear();
-            System.out.println("[ScoreboardChallengeController] getBadgeScoreboard using current month/year " + month + "/" + year);
-        }
-
-        List<Map<String, Object>> scoreboard = service.getBadgeScoreboard(request.userIds, month, year);
-        System.out.println("[ScoreboardChallengeController] getBadgeScoreboard returning entries=" + (scoreboard == null ? 0 : scoreboard.size()));
-        return Response.ok(scoreboard).build();
-    }
+  
 }

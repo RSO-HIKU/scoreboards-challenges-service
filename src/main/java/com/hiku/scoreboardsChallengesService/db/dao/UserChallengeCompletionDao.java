@@ -1,6 +1,6 @@
-package main.java.com.hiku.scoreboardsChallengesService.db.dao;
+package com.hiku.scoreboardsChallengesService.db.dao;
 
-import main.java.com.hiku.scoreboardsChallengesService.db.models.UserChallengeCompletion;
+import com.hiku.scoreboardsChallengesService.db.models.UserChallengeCompletion;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

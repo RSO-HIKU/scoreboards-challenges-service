@@ -1,10 +1,10 @@
-package main.java.com.hiku.scoreboardsChallengesService.service;
+package com.hiku.scoreboardsChallengesService.service;
 
-import main.java.com.hiku.scoreboardsChallengesService.db.dao.ChallengeDao;
-import main.java.com.hiku.scoreboardsChallengesService.db.dao.UserChallengeCompletionDao;
-import main.java.com.hiku.scoreboardsChallengesService.db.models.Challenge;
-import main.java.com.hiku.scoreboardsChallengesService.db.models.UserChallengeCompletion;
-import main.java.com.hiku.scoreboardsChallengesService.grpc.BadgeServiceClient;
+import com.hiku.scoreboardsChallengesService.db.dao.ChallengeDao;
+import com.hiku.scoreboardsChallengesService.db.dao.UserChallengeCompletionDao;
+import com.hiku.scoreboardsChallengesService.db.models.Challenge;
+import com.hiku.scoreboardsChallengesService.db.models.UserChallengeCompletion;
+
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -21,8 +21,6 @@ public class ScoreboardChallengeService {
     @Inject
     private UserChallengeCompletionDao completionDao;
 
-    @Inject
-    private BadgeServiceClient badgeServiceClient;
 
     public List<Challenge> getCurrentMonthChallenges() {
         LocalDate now = LocalDate.now();
@@ -89,28 +87,6 @@ public class ScoreboardChallengeService {
         return getChallengeScoreboard(now.getMonthValue(), now.getYear(), limit);
     }
 
-    public List<Map<String, Object>> getBadgeScoreboard(List<String> userIds, int month, int year) {
-        Map<String, Integer> badgeCounts = new HashMap<>();
-        Map<String, String> usernames = new HashMap<>();
-        
-        for (String userId : userIds) {
-            int count = badgeServiceClient.getBadgeCountForUser(userId, month, year);
-            badgeCounts.put(userId, count);
-            // Get the username from the last completion for this user
-            usernames.putIfAbsent(userId, completionDao.getUsernameForUser(userId));
-        }
-
-        return badgeCounts.entrySet().stream()
-                .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue())) // Sort descending by badge count
-                .map(entry -> {
-                    Map<String, Object> scoreEntry = new HashMap<>();
-                    scoreEntry.put("userId", entry.getKey());
-                    scoreEntry.put("username", usernames.get(entry.getKey()));
-                    scoreEntry.put("badgeCount", entry.getValue());
-                    return scoreEntry;
-                })
-                .collect(Collectors.toList());
-    }
 
     public List<Long> getUserCompletedChallengeIds(String userId, int month, int year) {
         List<UserChallengeCompletion> completions = completionDao.getCompletionsForUser(userId, month, year);
