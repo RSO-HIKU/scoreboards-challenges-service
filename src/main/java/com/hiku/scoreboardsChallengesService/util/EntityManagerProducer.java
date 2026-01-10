@@ -1,4 +1,4 @@
-package main.java.com.hiku.scoreboardsChallengesService.util;
+package com.hiku.scoreboardsChallengesService.util;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
@@ -9,10 +9,9 @@ import javax.persistence.Persistence;
 
 @ApplicationScoped
 public class EntityManagerProducer {
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("scoreboards-pu");
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("hikuPU");
 
     @Produces
-    @ApplicationScoped
     public EntityManager createEntityManager() {
         return emf.createEntityManager();
     }

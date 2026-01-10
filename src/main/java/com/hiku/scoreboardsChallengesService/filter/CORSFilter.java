@@ -1,4 +1,4 @@
-package main.java.com.hiku.scoreboardsChallengesService.filter;
+package com.hiku.scoreboardsChallengesService.filter;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;
