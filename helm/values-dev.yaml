@@ -21,6 +21,7 @@ gitops:
   enabled: false
 
 dbPool:
+  poolMinSize: 1
   poolMaxSize: 3
 
 service:
