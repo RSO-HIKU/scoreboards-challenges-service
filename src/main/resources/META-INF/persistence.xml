@@ -10,22 +10,8 @@
 
         <non-jta-data-source>jdbc/HikuDS</non-jta-data-source>
     <properties>
-            <!-- JDBC configuration -->
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <!-- Hibernate dialect -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
-            <!-- Schema configuration -->
-            <property name="hibernate.default_schema" value="scoreboards_challenges_service"/>
-            
-            <!-- Connection Pool Configuration (C3P0) -->
-            <property name="hibernate.c3p0.timeout" value="300"/>
-            <property name="hibernate.c3p0.max_statements" value="50"/>
-            <property name="hibernate.c3p0.idle_test_period" value="300"/>
-            
-            <!-- Hibernate settings -->
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.show_sql" value="false"/>
-            <property name="hibernate.hbm2ddl.auto" value="none"/>
         </properties>
     </persistence-unit>
 
