@@ -4,6 +4,7 @@ import com.hiku.scoreboardsChallengesService.db.models.Challenge;
 import com.hiku.scoreboardsChallengesService.db.models.UserChallengeCompletion;
 import com.hiku.scoreboardsChallengesService.service.ScoreboardChallengeService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -123,6 +124,7 @@ public class ScoreboardChallengeController {
 
 
     @GET
+    @RolesAllowed("user")
     @Path("/challenges")
     public Response getCurrentChallenges(@QueryParam("userId") String userId) {
         System.out.println("[ScoreboardChallengeController] getCurrentChallenges called userId=" + userId);
