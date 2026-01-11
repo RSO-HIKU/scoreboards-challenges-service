@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 
 @ApplicationScoped
 @Path("/scoreboards-challenges")
+@RolesAllowed("user")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ScoreboardChallengeController {
@@ -124,7 +125,6 @@ public class ScoreboardChallengeController {
 
 
     @GET
-    @RolesAllowed("user")
     @Path("/challenges")
     public Response getCurrentChallenges(@QueryParam("userId") String userId) {
         System.out.println("[ScoreboardChallengeController] getCurrentChallenges called userId=" + userId);
