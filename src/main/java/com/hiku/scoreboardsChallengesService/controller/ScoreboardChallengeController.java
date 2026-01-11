@@ -4,6 +4,7 @@ import com.hiku.scoreboardsChallengesService.db.models.Challenge;
 import com.hiku.scoreboardsChallengesService.db.models.UserChallengeCompletion;
 import com.hiku.scoreboardsChallengesService.service.ScoreboardChallengeService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 
 @ApplicationScoped
 @Path("/scoreboards-challenges")
+@RolesAllowed("user")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class ScoreboardChallengeController {
