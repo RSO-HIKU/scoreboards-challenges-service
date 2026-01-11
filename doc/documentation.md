@@ -112,7 +112,7 @@ The service comes pre-populated with 5 challenges.
 
 ## API Endpoints
 
-Api endpoints are described in doc/api.json.
+Api endpoints are described in doc/Scoreboards and Challanges Service.postman_collection.json file.
 
 
 ## Authentication & Authorization

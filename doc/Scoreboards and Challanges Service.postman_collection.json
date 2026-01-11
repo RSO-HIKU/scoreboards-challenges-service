@@ -1,0 +1,710 @@
+{
+	"info": {
+		"_postman_id": "935c2b66-24cc-48af-9de3-53b2c04ed448",
+		"name": "Scoreboards and Challanges Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50625471",
+		"_collection_link": "https://hiku99.postman.co/workspace/HIKU~a6a05134-9dee-4d54-81a0-4bc7685fcc34/collection/50625471-935c2b66-24cc-48af-9de3-53b2c04ed448?action=share&source=collection_link&creator=50625471"
+	},
+	"item": [
+		{
+			"name": "Get challenges for current month",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/scoreboards-challenges/scoreboards-challenges/challenges",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"scoreboards-challenges",
+						"scoreboards-challenges",
+						"challenges"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get challenges for current month",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/scoreboards-challenges/scoreboards-challenges/challenges",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"scoreboards-challenges",
+								"scoreboards-challenges",
+								"challenges"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "598"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 14:40:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"completed\": false,\n        \"description\": \"Climb 5 different peaks this month\",\n        \"id\": 1,\n        \"month\": 1,\n        \"title\": \"Peak Collector\",\n        \"year\": 2026\n    },\n    {\n        \"completed\": false,\n        \"description\": \"Complete 3 different trails\",\n        \"id\": 2,\n        \"month\": 1,\n        \"title\": \"Trail Blazer\",\n        \"year\": 2026\n    },\n    {\n        \"completed\": false,\n        \"description\": \"Start a hike before 7 AM\",\n        \"id\": 3,\n        \"month\": 1,\n        \"title\": \"Early Bird\",\n        \"year\": 2026\n    },\n    {\n        \"completed\": false,\n        \"description\": \"Hike every weekend this month\",\n        \"id\": 4,\n        \"month\": 1,\n        \"title\": \"Weekend Warrior\",\n        \"year\": 2026\n    },\n    {\n        \"completed\": false,\n        \"description\": \"Post 5 pictures from your hikes\",\n        \"id\": 5,\n        \"month\": 1,\n        \"title\": \"Social Butterfly\",\n        \"year\": 2026\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get challenges for specific month",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/scoreboards-challenges/scoreboards-challenges/challenges/1/2026",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"scoreboards-challenges",
+						"scoreboards-challenges",
+						"challenges",
+						"1",
+						"2026"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get challenges for specific month",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/scoreboards-challenges/scoreboards-challenges/challenges/1/2026",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"scoreboards-challenges",
+								"scoreboards-challenges",
+								"challenges",
+								"1",
+								"2026"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "598"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 14:42:16 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"completed\": false,\n        \"description\": \"Climb 5 different peaks this month\",\n        \"id\": 1,\n        \"month\": 1,\n        \"title\": \"Peak Collector\",\n        \"year\": 2026\n    },\n    {\n        \"completed\": false,\n        \"description\": \"Complete 3 different trails\",\n        \"id\": 2,\n        \"month\": 1,\n        \"title\": \"Trail Blazer\",\n        \"year\": 2026\n    },\n    {\n        \"completed\": false,\n        \"description\": \"Start a hike before 7 AM\",\n        \"id\": 3,\n        \"month\": 1,\n        \"title\": \"Early Bird\",\n        \"year\": 2026\n    },\n    {\n        \"completed\": false,\n        \"description\": \"Hike every weekend this month\",\n        \"id\": 4,\n        \"month\": 1,\n        \"title\": \"Weekend Warrior\",\n        \"year\": 2026\n    },\n    {\n        \"completed\": false,\n        \"description\": \"Post 5 pictures from your hikes\",\n        \"id\": 5,\n        \"month\": 1,\n        \"title\": \"Social Butterfly\",\n        \"year\": 2026\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Mark a challenge as completed by a user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\r\n  \"challengeId\": 4,\r\n  \"username\": \"nina\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/scoreboards-challenges/scoreboards-challenges/challenges/complete",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"scoreboards-challenges",
+						"scoreboards-challenges",
+						"challenges",
+						"complete"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Mark a challenge as completed by a user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\r\n  \"challengeId\": 4,\r\n  \"username\": \"nina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/scoreboards-challenges/scoreboards-challenges/challenges/complete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"scoreboards-challenges",
+								"scoreboards-challenges",
+								"challenges",
+								"complete"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "137"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 15:10:15 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"userId\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n    \"username\": \"nina\",\n    \"completedAt\": \"2026-01-11T15:10:15.251281718Z\",\n    \"challengeId\": 4\n}"
+				}
+			]
+		},
+		{
+			"name": "Get leaderboard of users with most completed challenges",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/scoreboards-challenges/scoreboards-challenges/scoreboard/challenges?month=1&year=2026&limit=10",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"scoreboards-challenges",
+						"scoreboards-challenges",
+						"scoreboard",
+						"challenges"
+					],
+					"query": [
+						{
+							"key": "month",
+							"value": "1",
+							"description": "Month (1-12), defaults to current month"
+						},
+						{
+							"key": "year",
+							"value": "2026",
+							"description": "Year, defaults to current year\n"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "Number of users to return, default 10\n"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get leaderboard of users with most completed challenges",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/scoreboards-challenges/scoreboards-challenges/scoreboard/challenges",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"scoreboards-challenges",
+								"scoreboards-challenges",
+								"scoreboard",
+								"challenges"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "277"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 15:13:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"completedChallenges\": 4,\n        \"userId\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n        \"username\": \"nina\"\n    },\n    {\n        \"completedChallenges\": 1,\n        \"userId\": \"842a4091-bf27-486b-a255-87b4211d4e5e\",\n        \"username\": \"nika\"\n    },\n    {\n        \"completedChallenges\": 1,\n        \"userId\": \"8e93bfd1-3a0b-479a-a041-071b92be00ec\",\n        \"username\": \"ak47\"\n    }\n]"
+				},
+				{
+					"name": "Get leaderboard of users with most completed challenges",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/scoreboards-challenges/scoreboards-challenges/scoreboard/challenges?month=1&year=2026&limit=10",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"scoreboards-challenges",
+								"scoreboards-challenges",
+								"scoreboard",
+								"challenges"
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "1",
+									"description": "Month (1-12), defaults to current month"
+								},
+								{
+									"key": "year",
+									"value": "2026",
+									"description": "Year, defaults to current year\n"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Number of users to return, default 10\n"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "277"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 15:15:35 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"completedChallenges\": 4,\n        \"userId\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n        \"username\": \"nina\"\n    },\n    {\n        \"completedChallenges\": 1,\n        \"userId\": \"842a4091-bf27-486b-a255-87b4211d4e5e\",\n        \"username\": \"nika\"\n    },\n    {\n        \"completedChallenges\": 1,\n        \"userId\": \"8e93bfd1-3a0b-479a-a041-071b92be00ec\",\n        \"username\": \"ak47\"\n    }\n]"
+				},
+				{
+					"name": "Get leaderboard of users with most completed challenges",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/scoreboards-challenges/scoreboards-challenges/scoreboard/challenges?month=1&year=2026&limit=10",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"scoreboards-challenges",
+								"scoreboards-challenges",
+								"scoreboard",
+								"challenges"
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "1",
+									"description": "Month (1-12), defaults to current month"
+								},
+								{
+									"key": "year",
+									"value": "2026",
+									"description": "Year, defaults to current year\n"
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Number of users to return, default 10\n"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "277"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 17:34:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"completedChallenges\": 8,\n        \"userId\": \"bd927d2a-4af6-4602-ab74-cca8e106f1f7\",\n        \"username\": \"nina\"\n    },\n    {\n        \"completedChallenges\": 1,\n        \"userId\": \"842a4091-bf27-486b-a255-87b4211d4e5e\",\n        \"username\": \"nika\"\n    },\n    {\n        \"completedChallenges\": 1,\n        \"userId\": \"8e93bfd1-3a0b-479a-a041-071b92be00ec\",\n        \"username\": \"ak47\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/scoreboards-challenges/health",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"scoreboards-challenges",
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "health check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/scoreboards-challenges/health",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"scoreboards-challenges",
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "315"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 15:16:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"UP\",\n    \"service\": \"scoreboards-challenges-service\",\n    \"timestamp\": \"2026-01-11T15:16:51.125603080Z\",\n    \"checks\": [\n        {\n            \"name\": \"database\",\n            \"status\": \"UP\",\n            \"message\": \"Database connection OK\"\n        },\n        {\n            \"name\": \"memory\",\n            \"status\": \"UP\",\n            \"message\": \"Heap usage: 2.6% (51 MB / 1986 MB)\"\n        },\n        {\n            \"name\": \"uptime\",\n            \"status\": \"UP\",\n            \"uptime_ms\": 17494371\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "health Liveness probe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/scoreboards-challenges/health/live",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"scoreboards-challenges",
+						"health",
+						"live"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "health Liveness probe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/scoreboards-challenges/health/live",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"scoreboards-challenges",
+								"health",
+								"live"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Content-Type, Authorization"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST, PUT, DELETE, OPTIONS"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "124"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 11 Jan 2026 15:20:03 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Jetty(10.0.9)"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "KumuluzEE/4.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"UP\",\n    \"service\": \"scoreboards-challenges-service\",\n    \"timestamp\": \"2026-01-11T15:20:04.004048411Z\",\n    \"uptime_ms\": 17687249\n}"
+				}
+			]
+		}
+	]
+}
